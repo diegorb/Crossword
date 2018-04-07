@@ -1,5 +1,5 @@
 public class Main {
-
+    private static int row = 8, col = 8;
     private static char [][]numbers = {
             {'b','a','e','t','z','v','p','b'},
             {'h','r','m','h','r','p','e','z'},
@@ -14,9 +14,9 @@ public class Main {
     private static void FindWord(String word){
         int i,j,k;
         int counter = 0;
-        for(i=0;i<8;i++){
-            for(j=0;j<8;j++){
-                if((8-j)>=word.length()) { // verify limits in x position
+        for(i=0;i<row;i++){
+            for(j=0;j<col;j++){
+                if((col-j)>=word.length()) { // verify limits in x position
                     if (numbers[i][j] == word.charAt(0)) { // find the first letter of the word into the matrix
                         for(k=0;k<word.length();k++){
                             if(numbers[i][j+k] == word.charAt(k)){ // verify if all the characters are equal in the row
@@ -34,7 +34,7 @@ public class Main {
                 }
                 counter = 0; // restart the counter for the y case
 
-                if((8-i)>=word.length()){ // verify limits in y position
+                if((row-i)>=word.length()){ // verify limits in y position
                     if (numbers[i][j] == word.charAt(0)) { // find the first letter of the word into the matrix
                         for(k=0;k<word.length();k++){
                             if(numbers[i+k][j] == word.charAt(k)){ // verify if all the characters are equal in the col
